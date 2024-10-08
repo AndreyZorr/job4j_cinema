@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import ru.job4j.cinema.model.User;
-import ru.job4j.cinema.service.UserService;
+import ru.job4j.cinema.service.user.UserService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -36,9 +36,9 @@ public class UserController {
             response.setStatus(HttpStatus.CONFLICT.value());
             model.addAttribute("user", new User());
             model.addAttribute("message", "User with the same email already exists");
-            return "errors/error";
+            return "/users/register";
         }
-        return "redirect:/users/register";
+        return "redirect:/users/login";
     }
 
     @GetMapping("/login")
@@ -50,12 +50,12 @@ public class UserController {
     public String loginUser(@ModelAttribute User user, Model model, HttpServletRequest request) {
         var userOptional = userService.findByEmailAndPassword(user.getEmail(), user.getPassword());
         if (userOptional.isEmpty()) {
-            model.addAttribute("error", "Почта или пароль введены неверно");
+            model.addAttribute("error", "Email or password entered incorrectly");
             return "users/login";
         }
         var session = request.getSession();
         session.setAttribute("user", userOptional.get());
-        return "redirect:/vacancies";
+        return "redirect:/films";
     }
 
     @GetMapping("/logout")

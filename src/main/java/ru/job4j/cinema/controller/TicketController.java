@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import ru.job4j.cinema.model.Ticket;
 import ru.job4j.cinema.model.User;
-import ru.job4j.cinema.service.FilmSessionDtoService;
-import ru.job4j.cinema.service.TicketService;
+import ru.job4j.cinema.service.filmsessiondto.FilmSessionDtoService;
+import ru.job4j.cinema.service.ticket.TicketService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -59,6 +59,6 @@ public class TicketController {
             return "errors/error";
         }
         session.setAttribute("ticket", ticket);
-        return "redirect:/film-session/{id}/ticket/buy/success";
+        return "redirect:/tickets/success";
     }
 }
