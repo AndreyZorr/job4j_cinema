@@ -14,6 +14,9 @@
 <body>
 <div class="container-fluid p-0">
     <header th:insert="blocks/header :: header"></header>
+    <div class="col text-center m-1">
+        <img th:src="@{/files/{fileId}(fileId=*{filmSession.filmDto.fileId})}" class="w-50" alt="Image">
+    </div>
     <div class="col m-1">
         <table class="table">
             <h4>You have successfully purchased a ticket</h4>
@@ -30,7 +33,6 @@
             </tr>
             </thead>
             <tbody>
-            <tr th:each="ticket : ${ticket}">
                 <td th:text="${filmSession.filmDto.name}" />
                 <td th:text="${filmSession.filmDto.startTime}"/>
                 <td th:text="${filmSession.filmDto.endTime}" />
@@ -42,8 +44,8 @@
             </tbody>
         </table>
     </div>
-    </div>
     <footer th:insert="blocks/footer :: footer"></footer>
+    </div>
 </div>
 </body>
 </html>

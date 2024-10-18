@@ -59,6 +59,6 @@ public class TicketController {
             return "errors/error";
         }
         session.setAttribute("ticket", ticket);
-        return "redirect:/tickets/success";
+        return "tickets/success";
     }
 }

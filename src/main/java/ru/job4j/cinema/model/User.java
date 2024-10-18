@@ -7,7 +7,7 @@ public class User {
 
     public static final Map<String, String> COLUMN_MAPPING = Map.of(
             "id", "id",
-            "fullName", "fullName",
+            "full_name", "fullName",
             "email", "email",
             "password", "password"
     );

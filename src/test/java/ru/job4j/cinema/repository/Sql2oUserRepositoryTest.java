@@ -44,9 +44,10 @@ public class Sql2oUserRepositoryTest {
     }
 
     @Test
-    public void whenSaveUserThenSuccess() {
-        var user = sql2oUserRepository.save(new User(0, "Tom", "tom@email.com", "qaz"));
-        var savedUser = sql2oUserRepository.findByEmailAndPassword(user.orElseThrow().getFullName(), user.orElseThrow().getPassword());
-        assertThat(savedUser.orElseThrow()).usingRecursiveComparison().isEqualTo(user.orElseThrow());
+    void whenSaveUserThenSuccess() {
+        var user = new User(0, "test@mail.com", "Test User", "password");
+        var savedUser = sql2oUserRepository.save(user).get();
+        var fetchedUser = sql2oUserRepository.findByEmailAndPassword("test@mail.com", "password").get();
+        assertThat(fetchedUser).usingRecursiveComparison().isEqualTo(savedUser);
     }
 }

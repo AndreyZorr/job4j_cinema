@@ -19,35 +19,27 @@
 <div class="container-fluid p-0">
     <header th:insert="blocks/header :: header"></header>
     <div class="container">
-        <div class="col m-1">
-            <table class="table">
-                <thead>
-                <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Year</th>
-                    <th scope="col">Genre</th>
-                    <th scope="col">Age</th>
-                    <th scope="col">Duration</th>
-                    <th scope="col">Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="film : ${films}">
-                    <td th:text="${film.name}"/>
-                    <td th:text="${film.year}"/>
-                    <td th:text="${film.genre}"/>
-                    <td th:text="${film.minimalAge}"/>
-                    <td th:text="${film.durationInMinutes}"/>
-                    <td th:text="${film.description}"/>
-                </tr>
-                <div class="d-flex justify-content-center">
-                    <a class="btn btn-primary w-30" th:href="@{/film-sessions}">Find a Film Session</a>
-                </div>
-                </tbody>
-            </table>
+        <div class="row align-items-center" th:each="film : ${films}">
+        <div class="col text-center m-1">
+            <img th:src="@{/files/{fileId}(fileId=*{film.fileId})}" class="w-50" alt="Image">
         </div>
+        <div class="col m-1">
+            <ul>
+                <li><div th:text="'Name: ' + ${film.name}"/></li>
+                <li><div th:text="'Year: ' + ${film.year}"/></li>
+                <li><div th:text="'Genre: ' + ${film.genre}"/></li>
+                <li><div th:text="'Age: ' + ${film.minimalAge} + '+'"/></li>
+                <li><div th:text="'Duration: ' + ${film.durationInMinutes}"/></li>
+                <li><div th:text="'Description: ' + ${film.description}"/></li>
+            </ul>
+            <div class="d-flex justify-content-center">
+                <a class="btn btn-primary w-30" th:href="@{/film-sessions}">Find a Film Session</a>
+            </div>
+        </div>
+            <hr class="col-12" />
+        </div>
+        <footer th:insert="blocks/footer :: footer"></footer>
     </div>
-    <footer th:insert="blocks/footer :: footer"></footer>
 </div>
 </body>
 </html>

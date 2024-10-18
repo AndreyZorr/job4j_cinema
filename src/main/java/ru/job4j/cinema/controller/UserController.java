@@ -36,9 +36,9 @@ public class UserController {
             response.setStatus(HttpStatus.CONFLICT.value());
             model.addAttribute("user", new User());
             model.addAttribute("message", "User with the same email already exists");
-            return "/users/register";
+            return "errors/register";
         }
-        return "redirect:/users/login";
+        return "redirect:/films";
     }
 
     @GetMapping("/login")
