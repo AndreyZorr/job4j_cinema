@@ -21,7 +21,7 @@
     <div class="container mt-2 mb-2">
         <div class="row align-items-center" th:each="filmSession : ${filmSession}">
         <div class="col text-center m-1">
-            <img th:src="@{/files/{fileId}(fileId=*{filmSession.filmDto.fileId})}" class="w-25" alt="Image">
+            <img th:src="@{/files/{fileId}(fileId=*{filmSession.filmDto.fileId})}" class="w-50" alt="Image">
         </div>
         <div class="col m-1">
             <ul>
@@ -31,12 +31,20 @@
                 <li><div th:text="'Number of rows: ' + ${filmSession.rowCount.length} + '+'"/></li>
                 <li><div th:text="'Number of places in a row: ' + ${filmSession.hallDto.placeCount.length}"/></li>
             </ul>
-            <a class="btn btn-success w-50" th:href="@{/film-session/{id}/ticket/buy (id = ${filmSession.id})}">Buy a ticket</a>
         </div>
-            <hr class="col-12" />
+            <div class="col m-1">
+                <ul>
+                    <li><div th:text="'Film: ' + ${filmSession.filmDto.name}"/></li>
+                    <li><div th:text="'Genre: ' + ${filmSession.filmDto.genre}"/></li>
+                    <li><div th:text="'Year: ' + ${filmSession.filmDto.year}"/></li>
+                    <li><div th:text="'Age: ' + ${filmSession.filmDto.minimalAge}"/></li>
+                </ul>
+                <a class="btn btn-success w-50" th:href="@{/film-session/{id}/ticket/buy (id = ${filmSession.id})}">Buy a ticket</a>
+            </div>
+            <hr class="col-12"/>
+        </div>
         </div>
         <footer th:insert="blocks/footer :: footer"></footer>
-    </div>
 </div>
 </body>
 </html>
