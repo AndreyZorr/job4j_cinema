@@ -27,28 +27,15 @@
             <h4>You have successfully purchased a ticket</h4>
             <h5>Ticket info:</h5>
             <ul>
-                <li>
-                    <div th:text="'Film: ' + ${filmSession.filmDto.name}"/>
-                </li>
-                <li>
-                    <div th:text="'Movie start: ' + ${filmSession.startTime}"/>
-                </li>
-                <li>
-                    <div th:text="'Movie end: ' + ${filmSession.endTime}"/>
-                </li>
-                <li>
-                    <div th:text="'Hall of name: ' + ${filmSession.hallDto.name}"/>
-                </li>
-                <li>
-                    <div th:text="'Row: ' + ${ticket.rowNumber}"/>
-                </li>
-                <li>
-                    <div th:text="'Place: ' + ${ticket.placeNumber}"/>
-                </li>
-                <li>
-                    <div th:text="'Price: ' + ${filmSession.price}"/>
-                </li>
+                <li><div th:text="'Film: ' + ${filmSession.filmDto.name}"/></li>
+                <li><div th:text="'Film starts at: ' + ${filmSession.startTime}"/></li>
+                <li><div th:text="'Film ends at: ' + ${filmSession.endTime}"/></li>
+                <li><div th:text="'Name of hall: ' + ${filmSession.hallDto.name}"/></li>
+                <li><div th:text="'Row: ' + ${ticket.rowNumber}"/></li>
+                <li><div th:text="'Place: ' + ${ticket.placeNumber}"/></li>
+                <li><div th:text="'Price: ' + ${filmSession.price}"/></li>
             </ul>
+        </div>
         </div>
         <footer th:insert="blocks/footer :: footer"></footer>
     </div>
