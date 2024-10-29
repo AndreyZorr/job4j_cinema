@@ -96,6 +96,7 @@
                 <artifactId>liquibase-maven-plugin</artifactId>
                 <version>4.15.0</version>
                 <configuration>
+                    <!--suppress UnresolvedMavenProperty -->
                     <propertyFile>${liquibase.config}</propertyFile>
                 </configuration>
                 <executions>
