@@ -28,13 +28,13 @@
                 <li><div th:text="'Movie start: ' + ${filmSession.startTime}"/></li>
                 <li><div th:text="'Movie end: ' + ${filmSession.endTime}"/></li>
                 <li><div th:text="'Hall of name: ' + ${filmSession.hallDto.name}"/></li>
-                <li><div th:text="'Number of rows: ' + ${filmSession.rowCount.length}"/></li>
+                <li><div th:text="'Number of rows: ' + ${filmSession.hallDto.rowCount.length}"/></li>
                 <li><div th:text="'Number of places in a row: ' + ${filmSession.hallDto.placeCount.length}"/></li>
             </ul>
         </div>
             <div class="col m-1">
                 <ul>
-                    <li><div th:text="'Film: ' + ${filmSession.filmDto.name}"/></li>
+                    <li><div th:text="'Film: ' + ${filmSession.filmDto.name}"></div></li>
                     <li><div th:text="'Genre: ' + ${filmSession.filmDto.genre}"/></li>
                     <li><div th:text="'Year: ' + ${filmSession.filmDto.year}"/></li>
                     <li><div th:text="'Age: ' + ${filmSession.filmDto.minimalAge}"/></li>
