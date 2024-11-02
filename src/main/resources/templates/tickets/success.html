@@ -20,6 +20,7 @@
 <div class="container-fluid p-0">
     <header th:insert="blocks/header :: header"></header>
     <div class="container mt-2 mb-2">
+        <div class="row align-items-center" th:href="@{/film-sessions}">
         <div class="col text-center m-1">
             <img th:src="@{/files/{fileId}(fileId=*{filmSession.filmDto.fileId})}" class="w-50" alt="Image">
         </div>
